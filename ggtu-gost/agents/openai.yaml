@@ -1,6 +1,0 @@
-interface:
-  display_name: "GGTU GOST"
-  short_description: "Write reports by GGTU rules"
-  default_prompt: "Use $ggtu-gost to write or format a report according to GGTU GOST requirements."
-policy:
-  allow_implicit_invocation: true

@@ -1,13 +1,13 @@
 ---
-name: ggtu-gost
-description: Use when the user asks to write, edit, structure, or format a report, practice report, explanatory note, diploma-like text, or other academic document according to GGTU requirements, GGTU GOST rules, or the local methodical guide. Trigger especially on phrases like "по ГОСТам ГГТУ", "по требованиям ГГТУ", "оформи по ГГТУ", or requests for GGTU-specific bibliography, appendices, figures, tables, and page layout.
+name: gstu-gost
+description: Use when the user asks to write, edit, structure, or format a report, practice report, explanatory note, diploma-like text, or other academic document according to GSTU requirements, GSTU GOST rules, or the local methodical guide. Trigger especially on phrases like "по ГОСТам ГГТУ", "по требованиям ГГТУ", "оформи по ГГТУ", or requests for GSTU-specific bibliography, appendices, figures, tables, and page layout.
 ---
 
-# GGTU GOST
+# GSTU GOST
 
 ## When to use
 
-- Draft any academic report or similar document according to GGTU GOST rules.
+- Draft any academic report or similar document according to GSTU GOST rules.
 - Build or fix the structure of a report section by section.
 - Rewrite informal or weak text into formal academic Russian.
 - Apply formatting and bibliography rules from `references/gost-summary.md`.
@@ -52,7 +52,7 @@ If the user does not have some of these yet, draft with explicit placeholders li
 
 ### 2. Build the report structure
 
-Use the department template if available. Otherwise, adapt the structure to the requested GGTU document type. For a report, the following safe default structure is suitable:
+Use the department template if available. Otherwise, adapt the structure to the requested GSTU document type. For a report, the following safe default structure is suitable:
 
 1. Title page.
 2. Assignment or individual task, if required by the department.
@@ -127,4 +127,4 @@ Load `references/gost-summary.md` when:
 
 ## Important note
 
-This skill is based on the local file `Оформление дипломных работ.pdf`, which is a diploma-work guide. Its formatting and citation rules are treated here as the working GGTU ruleset. If the user says "по ГОСТам ГГТУ", apply this ruleset by default. If the user later provides a narrower faculty, department, or document-specific guide, that guide overrides the inferred structure here.
+This skill is based on the local file `Оформление дипломных работ.pdf`, which is a diploma-work guide. Its formatting and citation rules are treated here as the working GSTU ruleset. If the user says "по ГОСТам ГГТУ", apply this ruleset by default. If the user later provides a narrower faculty, department, or document-specific guide, that guide overrides the inferred structure here.

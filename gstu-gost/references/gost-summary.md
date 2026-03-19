@@ -1,6 +1,6 @@
-# GGTU report rules and cited standards
+# GSTU report rules and cited standards
 
-This summary is based on the local methodical guide `Оформление дипломных работ.pdf` from the workspace. It is a diploma-work guide, so the formatting rules below are used as the working GGTU ruleset for similar academic documents unless the user provides a narrower document-specific guide.
+This summary is based on the local methodical guide `Оформление дипломных работ.pdf` from the workspace. It is a diploma-work guide, so the formatting rules below are used as the working GSTU ruleset for similar academic documents unless the user provides a narrower document-specific guide.
 
 ## Standards explicitly cited in the guide
 
@@ -144,7 +144,7 @@ This summary is based on the local methodical guide `Оформление дип
   - `ГОСТ 19.504-79` for the programmer manual;
   - `ГОСТ 19.505-79` and `РД 50-34.698-90` for the user manual.
 
-## Safe adaptation for GGTU reports
+## Safe adaptation for GSTU reports
 
 Use the formatting rules above directly. For structure, adapt them to the requested document type. For a report, this default structure is safe:
 

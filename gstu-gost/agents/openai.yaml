@@ -1,0 +1,9 @@
+interface:
+  display_name: "GSTU GOST"
+  short_description: "Write reports by GSTU rules"
+  icon_small: "./assets/gstu-gost-small.svg"
+  icon_large: "./assets/gstu-gost.png"
+  brand_color: "#79A8FF"
+  default_prompt: "Use $gstu-gost to write or format a report according to GSTU GOST requirements."
+policy:
+  allow_implicit_invocation: true
