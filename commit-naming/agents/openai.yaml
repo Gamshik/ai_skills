@@ -1,0 +1,6 @@
+interface:
+  display_name: "Commit Naming"
+  short_description: "Write clean structured commit messages"
+  default_prompt: "Use $commit-naming to name this commit correctly based on the changes."
+policy:
+  allow_implicit_invocation: true
