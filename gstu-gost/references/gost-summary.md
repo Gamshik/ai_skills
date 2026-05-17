@@ -99,6 +99,29 @@ Approximate diploma volumes:
 - Distinguish dashes and hyphens: hyphen `-` has no surrounding spaces, while dash `-`/`–` is separated by spaces on both sides in Russian explanatory text.
 - Corrections in printed text may be made with correction fluid and corrected text in the same place.
 
+## Existing DOCX template style parameters
+
+These rules come from the inspected GSTU diploma DOCX template and are intended for editing existing `.docx` documents without damaging their formatting. Treat style names as preferred handles, not as universal requirements; if a document uses localized or renamed styles, match by purpose and parameters.
+
+- Body text: preferred style `Normal`; `Times New Roman`, `14 pt`, justified, first-line indent `1.25 cm`, black text. Preserve an existing body-equivalent style such as `Body Text` where the document already uses it.
+- First-level numbered section: preferred style `Heading 1`; bold, numbered, outline level `0`, left indent about `1.65 cm`, hanging indent about `0.4 cm`, tab stop about `2.0 cm`, inherited body font.
+- Second-level numbered subsection: preferred style `Heading 2`; bold, numbered level `1`, outline level `1`, tab stop about `2.0 cm`, inherited body font.
+- Third-level numbered subsection: preferred style `Heading 3`; numbered level `2`, outline level `2`, tab stops about `2.35 cm` and `2.5 cm`, inherited body font; apply to the heading paragraph only.
+- Centered unnumbered major title: preferred style `Centered Title`; centered, bold, outline level `0`, no first-line indent; for `СОДЕРЖАНИЕ`, `ВВЕДЕНИЕ`, `ЗАКЛЮЧЕНИЕ`/`ВЫВОДЫ`, and similar major blocks when the template uses it.
+- Resume language heading: preferred style `Summary`; centered, bold, `Times New Roman`, `14 pt`; for `Резюме`, `Рэзюмэ`, and `Abstract` when present.
+- Formula paragraph: preferred style `Формула`; if the actual document style is `Formula`, use that. Expected formatting is centered, no first-line indent, inherited `14 pt` body font; the inspected `Formula` variant may also have left indent about `1.25 cm`.
+- Table caption: preferred style `Подпись таблицы`; left aligned, keep with next, `14 pt`, line spacing about `1.1`, spacing before about `12 pt`; use for captions such as `Таблица 5.1 - ...`.
+- Table of contents styles such as `toc 1`, `toc 2`, `TOC 1`, and `TOC 2` are Word-generated and should not be manually edited.
+
+DOCX edit safety:
+
+- Do not create new styles, change page settings, margins, section properties, headers/footers, numbering, table widths, borders, paragraph intervals, or other layout settings unless explicitly requested.
+- Do not manually edit the table of contents; it should be updated by Word field refresh.
+- Keep exactly one blank line after nonempty numbered headings and centered major titles.
+- Keep exactly one blank line before nonempty second-level subsection headings if there is not already one.
+- Start first-level numbered sections on a new page, using one page break or `pageBreakBefore`.
+- Start centered major titles on a new page using `pageBreakBefore` on the heading paragraph where possible, not an extra empty page-break paragraph.
+
 ## Pagination
 
 - Page numbers use Arabic numerals.
@@ -205,6 +228,13 @@ Approximate diploma volumes:
 - All formulas must be referenced in text explicitly with a word such as `формула`, `уравнение`, `выражение`, `равенство`, or `передаточная функция`, for example `по формуле (2.1)`.
 - Short similar formulas may be placed on one line and separated by semicolons.
 - Simple short intermediate formulas may be placed inline if spacing remains readable.
+- In existing DOCX templates, displayed formulas should be Office Math (`m:oMath`) rather than plain linear text.
+- Use Office Math fractions for mathematical division instead of `/`; use Office Math subscripts and superscripts for indices.
+- A numbered displayed formula should be a `Table Grid` table with `1 x 2` cells: left cell for the formula, right cell for a number like `(5.1)`.
+- In the inspected template, numbered formula tables use about `88 %` width for the formula cell and `12 %` for the number cell; both cells are vertically centered; the number is right aligned.
+- Number only general formulas referenced later. Substitutions, intermediate calculations, and final arithmetic results normally remain unnumbered.
+- For unnumbered substitutions or final calculations, use a `Table Grid` table with `1 x 1` cell and the formula style inside.
+- Keep one blank line before and after each displayed formula or calculation table.
 
 ## Tables
 
@@ -231,6 +261,10 @@ Approximate diploma volumes:
 - Number columns with Arabic numerals only when referenced in text, when splitting a table into parts, or when continuing a table on another page.
 - If common to all values in a row, a unit is written after the row name, separated by a comma.
 - Numeric values should align by digit place in a column, with the same number of decimal places where possible.
+- In existing DOCX templates, preserve user-configured calculation tables and change only necessary text or values inside cells unless redesign is requested.
+- Preserve table style, column widths, borders, horizontal and vertical alignment, row heights, first-line indents, and cell padding.
+- Reproduce existing calculation-table alignment: centered headers, left-aligned descriptive first data column where the sample does so, centered numeric columns, vertically centered cells, and no first-line indent inside cells.
+- If a calculation table changes, update linked values in text, formulas, follow-up calculations, and summary tables.
 
 ## Source list and in-text citations
 

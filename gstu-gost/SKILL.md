@@ -125,6 +125,32 @@ For non-diploma reports, adapt the structure conservatively:
 - Visible numbering starts from the second contents sheet, or from the abbreviations list, or from the introduction if earlier elements fit on one sheet.
 - Appendices are included in common pagination.
 
+## Existing DOCX Template Rules
+
+When editing an existing GSTU `.docx`, treat the document's current styles and layout as authoritative. Do not recreate the file, create new styles, rewrite the table of contents manually, or change margins, page size, headers/footers, numbering, paragraph settings, table widths, borders, or other formatting unless the user explicitly asks for that.
+
+Use existing styles rather than manual formatting. Style names are only preferred handles: if a document uses localized or renamed equivalents, match by purpose and formatting parameters.
+
+Preferred style mapping from the current GSTU diploma template:
+
+- Body text: preferred style `Normal`; `Times New Roman`, `14 pt`, justified, first-line indent `1.25 cm`, black text. If an existing paragraph uses a body-equivalent style such as `Body Text`, preserve that style instead of converting the document.
+- Numbered section heading: preferred style `Heading 1`; use for first-level numbered sections; bold, numbered, outline level `0`, paragraph indent approximately left `1.65 cm` with hanging indent about `0.4 cm`, tab stop about `2.0 cm`; inherits the document body font.
+- Numbered subsection heading: preferred style `Heading 2`; use for second-level numbered subsections; bold, numbered level `1`, outline level `1`, tab stop about `2.0 cm`; inherits the document body font.
+- Numbered nested subsection: preferred style `Heading 3`; use for third-level headings such as `1.1.2`; numbered level `2`, outline level `2`, tab stops about `2.35 cm` and `2.5 cm`; inherits the document body font. Apply the style to the heading paragraph only, then continue with body text.
+- Centered unnumbered major title: preferred style `Centered Title`; centered, bold, outline level `0`, no first-line indent; use for major unnumbered blocks such as `СОДЕРЖАНИЕ`, `ВВЕДЕНИЕ`, `ЗАКЛЮЧЕНИЕ`/`ВЫВОДЫ`, and similar document-level headings when the template uses this style.
+- Resume language heading: preferred style `Summary` when present; centered, bold, `Times New Roman`, `14 pt`; use for labels such as `Резюме`, `Рэзюмэ`, and `Abstract` if the template already uses this style.
+- Formula paragraph: preferred style `Формула`; if the document's actual formula style is named `Formula`, use `Formula`. Expected parameters are centered text, no first-line indent, and inherited `14 pt` body font; the current `Formula` variant may also have a left indent about `1.25 cm`.
+- Table caption: preferred style `Подпись таблицы`; left aligned, keep with next paragraph, `14 pt`, line spacing about `1.1`, spacing before about `12 pt`; use only for captions like `Таблица 5.1 - ...`.
+- Table of contents styles: styles such as `toc 1`, `toc 2`, `TOC 1`, and `TOC 2` belong to Word-generated contents. Do not edit their paragraphs manually; update contents in Word or leave it for the user when automation cannot safely refresh fields.
+
+Spacing and page-break behavior for this template:
+
+- After every nonempty numbered heading (`Heading 1`, `Heading 2`) and every nonempty centered major title, keep exactly one blank line before following text.
+- Before every nonempty subsection heading (`Heading 2`), keep one blank line unless one already exists.
+- Every new first-level numbered section starts on a new page. Prefer `pageBreakBefore` or a single existing page break; do not add duplicate breaks.
+- Every nonempty centered major title starts on a new page. Prefer the paragraph property `pageBreakBefore` on the title itself, not a separate empty paragraph with a page break.
+- Do not apply these spacing rules to Word-generated table-of-contents entries.
+
 ## Typography And Language
 
 - Write in formal, objective academic Russian with precise terminology and consistent terms.
@@ -193,6 +219,13 @@ For non-diploma reports, adapt the structure conservatively:
 - Break formulas only at operation signs and repeat the sign at the start of the next line; use `×` when breaking at multiplication.
 - Do not break at division signs or inside root, integral, logarithm, trigonometric, or similar expressions.
 - Short similar formulas may be placed on one line separated by semicolons.
+- In existing DOCX templates, formulas in the main text should be Office Math (`m:oMath`), not plain linear text.
+- Use Office Math fractions for mathematical division instead of `/`; use Office Math subscripts and superscripts instead of small inline characters.
+- A numbered displayed formula is a `Table Grid` table with `1 x 2` cells: left cell contains the Office Math formula, right cell contains a number like `(5.1)`.
+- For numbered formulas, use approximately `88 %` table width for the formula cell and `12 %` for the number cell; both cells vertically centered; formula paragraph uses the formula style and the number is right aligned.
+- Number only general formulas that will be referenced later. Substitutions, intermediate calculations, and final arithmetic results normally remain unnumbered.
+- For unnumbered substitutions or final calculations, use a `Table Grid` table with `1 x 1` cell and the formula style inside.
+- Keep one blank line before and after each displayed formula or calculation table.
 
 ## Tables
 
@@ -211,6 +244,10 @@ For non-diploma reports, adapt the structure conservatively:
 - Internal lines may be omitted only if readability remains clear.
 - On continuation pages use `Продолжение таблицы ...` or equivalent automated continuation style.
 - Numeric values in one column should align by digit place and usually keep the same number of decimal places.
+- In existing DOCX templates, preserve user-configured calculation tables. Change only the necessary text or values inside existing cells unless the user asked for table redesign.
+- Preserve the table style, column widths, borders, horizontal/vertical alignment, row heights, first-line indents, and cell padding.
+- When reproducing calculation tables, follow the existing alignment scheme: headers centered, first descriptive data column left aligned where the sample does so, numeric columns centered, vertical alignment centered, and cell paragraphs without first-line indent.
+- If a calculation table changes, update linked values in text, formulas, follow-up calculations, and summary tables.
 
 ## Sources And Citations
 
